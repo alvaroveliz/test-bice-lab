@@ -31,7 +31,7 @@ const Layout: React.FC<Props> = (props) => {
             <Container maxWidth="lg">
                 <Grid container>
                     <Typography variant="h4" align="center" component="div" className={classes.title}>
-                        Indicadores economómicos
+                        Indicadores Económicos
                     </Typography>
                     <Grid item xs={12}>
                         {props.children}
@@ -39,7 +39,7 @@ const Layout: React.FC<Props> = (props) => {
                     <Grid item xs={12}>
                         <Box p={4} className={classes.footerBox}>
                             <Link href="/profile">
-                                <Typography variant="overline">Sobre mi</Typography>
+                                <Typography variant="overline">Sobre mí</Typography>
                             </Link>
                         </Box>
                     </Grid>
