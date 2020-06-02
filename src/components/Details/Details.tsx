@@ -64,7 +64,7 @@ const Details: React.FC<Props> = ({ history, match }): React.ReactElement => {
             try {
                 const response = await axios.get(`${apiEndPoint}/api/indicators/${params.indicatorKey}/values`);
                 const data = await response.data;
-                const indicator = { value: data.values[0].value, ...data };
+                const indicator = { value: data.values[data.values.length - 1].value, ...data };
                 const dataLabels = data.values.map((dataValue: any) => {
                     return moment.unix(dataValue.date).format('DD-MM-yyyy');
                 });
@@ -85,7 +85,9 @@ const Details: React.FC<Props> = ({ history, match }): React.ReactElement => {
                 };
 
                 setChartData(dataSet);
-                setTableData(data.values);
+
+                const tableData = data.values.reverse();
+                setTableData(tableData);
             } catch (error) {
                 console.log(error);
             }
